@@ -11,12 +11,11 @@ cameraY = 0
 
 def render():
     screen = [[" " for _ in range(screenWidth)] for _ in range(screenHeight)]
-    print(objects)
-    for obj in objects:
+    for obj in sorted(objects, key=lambda obj: obj.z):
         for width in range(obj.width):
             for height in range(obj.height):
                 if (screenWidth + cameraX >= obj.x + width >= cameraX) and (screenHeight+cameraY >= obj.y + height >= cameraY):
-                    screen[obj.y+height-cameraY][obj.x+width-cameraX] = "#"
+                    screen[obj.y+height-cameraY][obj.x+width-cameraX] = obj.texture
     
     for y in range(screenHeight):
         toPrint = ""
