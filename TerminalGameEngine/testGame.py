@@ -1,12 +1,13 @@
 import entities as e
+import core as c
 import render as r
-import time as t
 
-goomba = e.Rect("Goomba", "@", 50, 3, 2, 1)
-mario = e.Rect("Mario", "#", 60, 3, 2, 0)
+goomba = e.Rect("Goomba", "@", 50, 3, 2, 1, 0)
+mario = e.Rect("Mario", "#", 60, 3, 2, 1, 1)
 
-while True:
-    r.render()
+
+def Update():
     goomba.x -= 1
     mario.x -= 2
-    t.sleep(0.1)
+
+c.main_loop(Update)
