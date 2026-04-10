@@ -11,5 +11,22 @@ class Rect:
         self.z = z
         self.enabled = enabled
         
+        self.type = "rect"
+        
+        r.objects.append(self)
+        r.objectMap[name] = self
+        
+class Text:
+    def __init__(self, name, text, x, y, isLocked = True, z = 0, enabled = True):
+        self.name = name
+        self.text = list(str(text))
+        self.x = x
+        self.y = y
+        self.isLocked = isLocked
+        self.z = z
+        self.enabled = enabled
+        
+        self.type = "text"
+        
         r.objects.append(self)
         r.objectMap[name] = self
